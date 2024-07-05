@@ -9,10 +9,10 @@ cache:
     - node_modules
 
 install:
-  - npm install | tail -n 100
+  - npm install > build.log
 
 script:
-  - npm run build | tail -n 100
+  - npm run build > build.log
 
 before_deploy:
   - zip -r practice-front *
