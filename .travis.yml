@@ -1,16 +1,12 @@
-dist: xenial
+dist: focal
 language: node_js
 
 node_js:
-  - stable
+  - "18"
 
 cache:
   directories:
     - node_modules
-
-before_install:
-  - sudo apt-get update
-  - sudo apt-get install -y --no-install-recommends g++-8 gcc-8 libc6-dev
 
 install:
   - npm install
