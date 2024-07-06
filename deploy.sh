@@ -21,7 +21,7 @@ else
 fi
 
 echo "> 3000번 포트 사용 여부 확인"
-PORT_PID=$(lsof -t -i:3000)
+PORT_PID=$(sudo lsof -t -i:3000)
 
 if [ -n "$PORT_PID" ]; then
     echo "> 3000번 포트를 사용 중인 프로세스 종료: $PORT_PID"
