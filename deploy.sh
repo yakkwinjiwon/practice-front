@@ -20,16 +20,16 @@ else
     sleep 5
 fi
 
-echo "> 3000번 포트 사용 여부 확인"
-PORT_PID=$(sudo lsof -t -i:3000)
+# echo "> 3000번 포트 사용 여부 확인"
+# PORT_PID=$(sudo lsof -t -i:3000)
 
-if [ -n "$PORT_PID" ]; then
-    echo "> 3000번 포트를 사용 중인 프로세스 종료: $PORT_PID"
-    sudo kill -9 $PORT_PID
-    sleep 5
-else
-    echo "> 3000번 포트를 사용 중인 프로세스가 없습니다."
-fi
+# if [ -n "$PORT_PID" ]; then
+#     echo "> 3000번 포트를 사용 중인 프로세스 종료: $PORT_PID"
+#     sudo kill -9 $PORT_PID
+#     sleep 5
+# else
+#     echo "> 3000번 포트를 사용 중인 프로세스가 없습니다."
+# fi
 
 echo "> 새 애플리케이션 배포 준비"
 
