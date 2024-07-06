@@ -20,6 +20,17 @@ else
     sleep 5
 fi
 
+echo "> 3000번 포트 사용 여부 확인"
+PORT_PID=$(lsof -t -i:3000)
+
+if [ -n "$PORT_PID" ]; then
+    echo "> 3000번 포트를 사용 중인 프로세스 종료: $PORT_PID"
+    kill -9 $PORT_PID
+    sleep 5
+else
+    echo "> 3000번 포트를 사용 중인 프로세스가 없습니다."
+fi
+
 echo "> 새 애플리케이션 배포 준비"
 
 echo "> npm install"
@@ -30,6 +41,7 @@ sudo npm install -g serve | sudo tee -a $LOG_FILE
 
 echo "> npm run build"
 sudo npm run build | sudo tee -a $LOG_FILE
+
 
 echo "> 새로운 리액트 애플리케이션 실행"
 SERVE_PATH=$(which serve)
