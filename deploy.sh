@@ -2,6 +2,7 @@
 
 REPOSITORY=/home/ec2-user/app/step3
 PROJECT_NAME=practice-front
+LOG_FILE=$REPOSITORY/deploy.log
 
 echo "> 전체 파일 복사"
 cp $REPOSITORY/zip/* $REPOSITORY/
@@ -28,11 +29,11 @@ echo "> npm install"
 sudo npm install
 
 echo "> npm install -g serve"
-sudo npm install -g serve
+sudo npm install -g serve | tee -a $LOG_FILE
 
 echo "> npm run build"
-sudo npm run build
+sudo npm run build | tee -a $LOG_FILE
 
 echo "> 새로운 리액트 애플리케이션 실행"
 
-nohup serve -s build -l 3000 > $REPOSITORY/nohup.out 2>&1 &
+nohup serve -s build -l 3000 > $REPOSITORY/nohup.out 2>&1 & | tee -a $LOG_FILE
