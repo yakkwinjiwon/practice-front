@@ -8,6 +8,9 @@ cache:
   directories:
     - node_modules
 
+env:
+  - NPM_CONFIG_LOGLEVEL=warn
+
 install:
   - npm install > build.log
 
@@ -15,7 +18,7 @@ script:
   - npm run build > build.log
 
 before_deploy:
-  - zip -r practice-front *
+  - zip -r practice-front * > build.log
   - mkdir -p deploy
   - mv practice-front.zip deploy/practice-front.zip
 
