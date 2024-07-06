@@ -20,6 +20,7 @@ else
     sleep 5
 fi
 
+
 echo "> 새 애플리케이션 배포 준비"
 
 echo "> npm install"
