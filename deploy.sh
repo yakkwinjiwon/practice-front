@@ -25,7 +25,7 @@ PORT_PID=$(lsof -t -i:3000)
 
 if [ -n "$PORT_PID" ]; then
     echo "> 3000번 포트를 사용 중인 프로세스 종료: $PORT_PID"
-    kill -9 $PORT_PID
+    sudo kill -9 $PORT_PID
     sleep 5
 else
     echo "> 3000번 포트를 사용 중인 프로세스가 없습니다."
