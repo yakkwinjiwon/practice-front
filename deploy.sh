@@ -27,6 +27,9 @@ cd $REPOSITORY/$PROJECT_NAME
 echo "> npm install"
 sudo npm install
 
+echo "> npm install -g serve"
+sudo npm install -g serve
+
 echo "> npm run build"
 sudo npm run build
 
