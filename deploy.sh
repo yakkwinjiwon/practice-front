@@ -23,13 +23,13 @@ fi
 echo "> 새 애플리케이션 배포 준비"
 
 # 리액트 애플리케이션이 있는 디렉토리로 이동
-cd $REPOSITORY/$PROJECT_NAME
+# cd $REPOSITORY/$PROJECT_NAME
 
-echo "> npm install"
-sudo npm install
+# echo "> npm install"
+# sudo npm install
 
-echo "> npm install -g serve"
-sudo npm install -g serve
+# echo "> npm install -g serve"
+# sudo npm install -g serve
 # sudo npm install -g serve | sudo tee -a $LOG_FILE
 
 echo "> npm run build"
@@ -38,5 +38,5 @@ sudo npm run build
 
 echo "> 새로운 리액트 애플리케이션 실행"
 
-nohup serve -s build -l 3000 > $REPOSITORY/nohup.out 2>&1 &=
+nohup serve -s build -l 3000 > $REPOSITORY/nohup.out 2>&1 &
 # nohup serve -s build -l 3000 > $REPOSITORY/nohup.out 2>&1 & | sudo tee -a $LOG_FILE
