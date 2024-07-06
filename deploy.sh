@@ -33,4 +33,4 @@ sudo npm run build | sudo tee -a $LOG_FILE
 
 echo "> 새로운 리액트 애플리케이션 실행"
 SERVE_PATH=$(which serve)
-sudo nohup $SERVE_PATH -s build -l 3000 -H 0.0.0.0 > $REPOSITORY/nohup.out 2>&1 & # | sudo tee -a $LOG_FILE
+sudo nohup $SERVE_PATH -s build -l 3000 > $REPOSITORY/nohup.out 2>&1 & # | sudo tee -a $LOG_FILE
