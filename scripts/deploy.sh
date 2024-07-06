@@ -3,8 +3,8 @@
 REPOSITORY=/home/ec2-user/app/step3
 PROJECT_NAME=practice-front
 
-echo "> Build 파일 복사"
-cp $REPOSITORY/zip/*.jar $REPOSITORY/
+echo "> 전체 파일 복사"
+cp $REPOSITORY/zip/* $REPOSITORY/
 
 echo "> 현재 구동 중인 리액트 애플리케이션 pid 확인"
 CURRENT_PID=$(pgrep -fl ${PROJECT_NAME} | grep node | awk '{print $1}')
@@ -25,10 +25,10 @@ echo "> 새 애플리케이션 배포 준비"
 cd $REPOSITORY/$PROJECT_NAME
 
 echo "> npm install"
-npm install
+sudo npm install
 
 echo "> npm run build"
-npm run build
+sudo npm run build
 
 echo "> 새로운 리액트 애플리케이션 실행"
 
