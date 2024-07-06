@@ -5,7 +5,7 @@ PROJECT_NAME=practice-front
 LOG_FILE=$REPOSITORY/deploy.log
 
 echo "> 전체 파일 복사"
-cp $REPOSITORY/zip/* $REPOSITORY/
+cp -r $REPOSITORY/zip/* $REPOSITORY/
 
 echo "> 현재 구동 중인 리액트 애플리케이션 pid 확인"
 CURRENT_PID=$(pgrep -fl ${PROJECT_NAME} | grep node | awk '{print $1}')
