@@ -4,13 +4,6 @@ language: node_js
 node_js:
   - "18"
 
-cache:
-  directories:
-    - node_modules
-
-env:
-  - NPM_CONFIG_LOGLEVEL=warn
-
 install:
   - npm install > build.log
 
@@ -18,9 +11,15 @@ script:
   - npm run build > build.log
 
 before_deploy:
-  - zip -r practice-front * > build.log
-  - mkdir -p deploy
-  - mv practice-front.zip deploy/practice-front.zip
+  - mkdir -p before-deploy && mkdir -p before-deploy/build
+  - cp -r build/* before-deploy/build/
+  - cp appspec.yml before-deploy/
+  - cp scripts/*.sh before-deploy/
+  - cd before-deploy
+  - zip -r practice-front *
+  - mkdir -p ../deploy
+  - mv practice-front.zip ../deploy/practice-front.zip
+  - cd ..
 
 
 deploy:
